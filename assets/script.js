@@ -13,6 +13,7 @@ var timer = 20;
 
 var timerCount;
 
+let score = 0
 
 var questions = [
     {
@@ -37,11 +38,14 @@ var questions = [
     }
 ]
 
+const scorePoints = 100
+
 // start quiz function goes here - here we start timer, and show the starting time. Hide start screen and unhide the quiz quesions
 function startQuiz() {
     // timer count set as a variable so it can be cleared in endgame()
     // timer set to count down every second, when it runs out, endgame() will run
     timerCount = setInterval(function () {
+        score = 0
         timer--;
         timerDisplay.innerHTML = timer;
         if (timer <= 0) {
@@ -50,9 +54,7 @@ function startQuiz() {
     }, 1000);
     timerDisplay.innerHTML = timer;
     quizQuestion();
-    console.log("startBtn clicked")
 }
-
 
 // this function displays the next questions - gets questions from questions array
 function quizQuestion() {
@@ -72,7 +74,6 @@ function quizQuestion() {
         answers.appendChild(optionBtn)
         // document.getElementById("answer-options").appendChild(optionBtn)
     }
-
 };
 
 // create a function for wrong click and right click - this one is right click
@@ -83,6 +84,7 @@ function answerClick() {
         feedback.innerHTML = "Correct!";
         feedback.style.color = "green";
         quizQuestionIndex++;
+        answerOptions.innerHTML = "";
         // see if questions have run out, if there's still time then game ends with a win, else go on to the next question
         if (quizQuestionIndex === questions.length) {
             endGame(true);

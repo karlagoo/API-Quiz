@@ -1,0 +1,32 @@
+:root {
+    background-color: rgb(29 26 26);
+    color: whitesmoke;
+}
+
+header{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+
+#timer-display {
+    font-size: 25px;
+    text-align: center;
+}
+
+.Question {
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+}
+
+#answers {
+    margin-left: 2em;
+    
+}
+
+#feedback {
+    font-size: 25px;
+    text-align: center;
+}
