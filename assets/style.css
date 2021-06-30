@@ -30,3 +30,7 @@ header{
     font-size: 25px;
     text-align: center;
 }
+
+#score {
+    text-align: center;
+}

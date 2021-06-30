@@ -6,6 +6,7 @@ var feedback = document.getElementById("feedback");
 var answerOptions = document.getElementById("answers");
 var questionTitle = document.getElementById("question-title");
 var timerDisplay = document.getElementById("timer-display");
+var scoreDisplay = document.getElementById("score");
 
 var quizQuestionIndex = 0;
 
@@ -13,7 +14,7 @@ var timer = 20;
 
 var timerCount;
 
-let score = 0
+let score;
 
 var questions = [
     {
@@ -38,8 +39,6 @@ var questions = [
     }
 ]
 
-const scorePoints = 100
-
 // start quiz function goes here - here we start timer, and show the starting time. Hide start screen and unhide the quiz quesions
 function startQuiz() {
     // timer count set as a variable so it can be cleared in endgame()
@@ -48,6 +47,7 @@ function startQuiz() {
         score = 0
         timer--;
         timerDisplay.innerHTML = timer;
+        scoreDisplay.innerHTML = score;
         if (timer <= 0) {
             endGame(false);
         }
@@ -84,6 +84,7 @@ function answerClick() {
         feedback.innerHTML = "Correct!";
         feedback.style.color = "green";
         quizQuestionIndex++;
+        score +1
         answerOptions.innerHTML = "";
         // see if questions have run out, if there's still time then game ends with a win, else go on to the next question
         if (quizQuestionIndex === questions.length) {
