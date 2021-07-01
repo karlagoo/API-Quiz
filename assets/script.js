@@ -7,6 +7,8 @@ var answerOptions = document.getElementById("answers");
 var questionTitle = document.getElementById("question-title");
 var timerDisplay = document.getElementById("timer-display");
 var scoreDisplay = document.getElementById("score");
+var initialsEl = document.getElementById("initials");
+
 
 var quizQuestionIndex = 0;
 
@@ -14,7 +16,7 @@ var timer = 20;
 
 var timerCount;
 
-let score;
+var totalScore = 0;
 
 var questions = [
     {
@@ -38,16 +40,13 @@ var questions = [
         correctAnswer: "onclick",
     }
 ]
-
 // start quiz function goes here - here we start timer, and show the starting time. Hide start screen and unhide the quiz quesions
 function startQuiz() {
-    // timer count set as a variable so it can be cleared in endgame()
-    // timer set to count down every second, when it runs out, endgame() will run
+    !renderEndScreen();
     timerCount = setInterval(function () {
         score = 0
         timer--;
         timerDisplay.innerHTML = timer;
-        scoreDisplay.innerHTML = score;
         if (timer <= 0) {
             endGame(false);
         }
@@ -72,10 +71,8 @@ function quizQuestion() {
 
         optionBtn.innerHTML = answerOptions[i];
         answers.appendChild(optionBtn)
-        // document.getElementById("answer-options").appendChild(optionBtn)
     }
 };
-
 // create a function for wrong click and right click - this one is right click
 function answerClick() {
 
@@ -84,7 +81,8 @@ function answerClick() {
         feedback.innerHTML = "Correct!";
         feedback.style.color = "green";
         quizQuestionIndex++;
-        score +1
+        totalScore++;
+        scoreDisplay.innerHTML = totalScore;
         answerOptions.innerHTML = "";
         // see if questions have run out, if there's still time then game ends with a win, else go on to the next question
         if (quizQuestionIndex === questions.length) {
@@ -109,17 +107,21 @@ function answerClick() {
         }, 1000);
     }
 }
-// when answered wrong - timer is subtracted (font turns red)
 
-// when all questions are answered OR timer runs out - game is over
-
-// when game is over initials with score are stored
-// Quiz end function - stop timer, show high score screen, hide questions, if timer runs out call this function
 function endGame(win) {
+    !renderEndScreen();
     clearInterval(timerCount);
     questionTitle.innerHTML = "";
     answers.innerHTML = "";
     feedback.style.color = win ? "green" : "red";
     feedback.innerHTML = win ? "You Win!! Congrats" : "Timer ran out! You Lose!";
+}
+function renderEndScreen() {
+    var endScreenEl = document.getElementById("end-screen");
+    if (endScreenEl.style.display === "none") {
+        endScreenEl.style.display = "block";
+    } else {
+        endScreenEl.style.display = "none";
+    }
 }
 startBtn.onclick = startQuiz

@@ -1,4 +1,4 @@
-# API-Quiz 📝
+# **API-Quiz** 📝
 ## In this homework, we used our newfound knowledge to create a quiz that registered each player's score
 
 This assignment was the toughest one for me. Javascript is a battle field, and I am not the strongest soldier, but I did have fun creating it
@@ -27,3 +27,7 @@ Next I made an answer click function that demonstrated when the user clicked the
 * I also added the empty answerOptions.innerHTML variable as an empty array so as to clear the previous question and only display the current question.
 
 Lastly, I created an endGame function in which the Game over text would be displayed. In this section, the timer would also be cleared.
+
+## **Here is the link to my quiz:** https://karlagoo.github.io/API-Quiz/
+
+## Here is a screenshot of what it looks like 
