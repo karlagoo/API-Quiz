@@ -31,3 +31,4 @@ Lastly, I created an endGame function in which the Game over text would be displ
 ## **Here is the link to my quiz:** https://karlagoo.github.io/API-Quiz/
 
 ## Here is a screenshot of what it looks like 
+![API Quiz!](https://user-images.githubusercontent.com/84356242/124062003-93834280-d9f5-11eb-8145-5aa0c029980f.png)
